@@ -376,7 +376,10 @@ Daikin.prototype = {
 		// Finally, we send the command
 		this.log("setDaikinMode: setting pow to " + pow + ", mode to " + mode + " and stemp to " + sTemp);
 		request.get({
-			url: this.apiroute + "/aircon/set_control_info" + pow + mode + sTemp + "&shum=0"
+			//url: this.apiroute + "/aircon/set_control_info" + pow + mode + sTemp + "&shum=0"
+			  url: this.apiroute + "/aircon/set_control_info" + pow  + sTemp + "&mode=3&shum=0&f_rate=A"
+			//immer cool, immer fan auf auto wird damit hart codiert
+
 		}, function(err, response, body) {
 			if (!err && response.statusCode == 200) {
 				this.log("response success");
